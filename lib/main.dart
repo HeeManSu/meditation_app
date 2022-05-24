@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:meditation_app/bottom_navItem..dart';
 import 'package:meditation_app/constrants.dart';
 import 'package:meditation_app/widgets/category_card.dart';
 
@@ -34,22 +35,7 @@ class HomeScreen extends StatelessWidget {
     //This gonna give us total height and width of our device.
     var size = MediaQuery.of(context).size;
     return Scaffold(
-      bottomNavigationBar: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-        height: 70,
-        color: Colors.white,
-        child: Row(
-          children: [
-            Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                SvgPicture.asset("assets/icons/calendar.svg"),
-                const Text("Today"),
-              ],
-            )
-          ],
-        ),
-      ),
+      bottomNavigationBar: const BottomNavBar(),
       body: Stack(
         children: [
           Container(
@@ -82,7 +68,7 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    "Good Morning \nDivya",
+                    "Good Morning \nHimanshu",
                     style: Theme.of(context)
                         .textTheme
                         .displaySmall
