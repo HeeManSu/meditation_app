@@ -1,7 +1,7 @@
+// ignore: file_names
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:meditation_app/constrants.dart';
-
 
 class BottomNavBar extends StatelessWidget {
   const BottomNavBar({
@@ -16,21 +16,24 @@ class BottomNavBar extends StatelessWidget {
       color: Colors.white,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: const [
+        children: [
           BottomNavItem(
             title: "Today",
             svgScr: "assets/icons/calendar.svg",
             isActive: false,
+            press: () {},
           ),
           BottomNavItem(
             title: "All Exercises",
             svgScr: "assets/icons/gym.svg",
             isActive: true,
+            press: () {},
           ),
           BottomNavItem(
             title: "Settings",
             svgScr: "assets/icons/Settings.svg",
             isActive: false,
+            press: () {},
           ),
         ],
       ),
@@ -41,7 +44,7 @@ class BottomNavBar extends StatelessWidget {
 class BottomNavItem extends StatelessWidget {
   final String title;
   final String svgScr;
-  // final Function press;
+  final VoidCallback press;
   final bool isActive;
 
   const BottomNavItem({
@@ -49,12 +52,13 @@ class BottomNavItem extends StatelessWidget {
     required this.title,
     required this.svgScr,
     required this.isActive,
+    required this.press,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      // onTap: press,
+      onTap: press,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [

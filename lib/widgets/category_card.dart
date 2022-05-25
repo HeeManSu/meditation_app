@@ -5,13 +5,13 @@ import 'package:meditation_app/constrants.dart';
 class Categorycard extends StatelessWidget {
   final String title;
   final String svgSrc;
-  // final Function press;
+  final VoidCallback press;
 
   const Categorycard({
     Key? key,
     required this.title,
     required this.svgSrc,
-    // required this.press,
+    required this.press,
   }) : super(key: key);
 
   @override
@@ -34,7 +34,7 @@ class Categorycard extends StatelessWidget {
         child: Material(
           color: Colors.transparent,
           child: InkWell(
-            // onTap: press;
+            onTap: press,
             child: Padding(
               padding: const EdgeInsets.all(20.0),
               child: Column(children: [

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:meditation_app/bottom_navItem..dart';
+import 'package:meditation_app/screens/details_screen.dart';
+import 'package:meditation_app/widgets/bottom_navItem..dart';
 import 'package:meditation_app/constrants.dart';
 import 'package:meditation_app/widgets/category_card.dart';
+import 'package:meditation_app/widgets/search_bar.dart';
 
 void main() {
   runApp(const MyApp());
@@ -68,53 +70,46 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    "Good Morning \nHimanshu",
+                    "Good Morning \nDivya",
                     style: Theme.of(context)
                         .textTheme
                         .displaySmall
                         ?.copyWith(fontWeight: FontWeight.w900),
                   ),
-                  Container(
-                    margin: const EdgeInsets.symmetric(vertical: 30),
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 30, vertical: 5),
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(29.5)),
-                    child: TextField(
-                      decoration: InputDecoration(
-                        hintText: "Search",
-                        icon: SvgPicture.asset("assets/icons/search.svg"),
-                        border: InputBorder.none,
-                      ),
-                    ),
-                  ),
+                  const SearchBar(),
                   Expanded(
                     child: GridView.count(
                       crossAxisCount: 2,
                       childAspectRatio: .85,
                       crossAxisSpacing: 20,
                       mainAxisSpacing: 20,
-                      children: const [
+                      children: [
                         Categorycard(
                           title: "Diet Recommendation",
                           svgSrc: "assets/icons/Hamburger.svg",
-                          // press: () {},
+                          press: () {},
                         ),
                         Categorycard(
                           title: "Kegel Exercises",
                           svgSrc: "assets/icons/Excrecises.svg",
-                          // press: () {},
+                          press: () {},
                         ),
                         Categorycard(
                           title: "Meditation",
                           svgSrc: "assets/icons/Meditation.svg",
-                          // press: () {},
+                          press: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) {
+                                return const DetailsScreen();
+                              }),
+                            );
+                          },
                         ),
                         Categorycard(
                           title: "Yoga",
                           svgSrc: "assets/icons/yoga.svg",
-                          // press: () {},
+                          press: () {},
                         ),
                       ],
                     ),
